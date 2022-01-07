@@ -91,7 +91,7 @@ const CommentsForm = ({ slug }) => {
           onChange={onInputChange}
           className="p-4 outline-none w-full rounded-lg h-40 focus:ring-2 focus:ring-gray-200 bg-gray-100 text-gray-700"
           name="comment"
-          placeholder="Comment"
+          placeholder="Comentar"
         />
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
@@ -100,7 +100,7 @@ const CommentsForm = ({ slug }) => {
           value={formData.name}
           onChange={onInputChange}
           className="py-2 px-4 outline-none w-full rounded-lg focus:ring-2 focus:ring-gray-200 bg-gray-100 text-gray-700"
-          placeholder="Name"
+          placeholder="Nombre"
           name="name"
         />
         <input
@@ -150,111 +150,3 @@ const CommentsForm = ({ slug }) => {
 };
 
 export default CommentsForm;
-//Comments form last version
-/* import { comment } from "postcss";
-import React, { useRef, useState, useEffect } from "react";
-
-const CommentsForm = ({ slug }) => {
-  const [error, setError] = useState(false);
-  const [localStorage, setLocalStorage] = useState(null);
-  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
-  const commentEl = useRef();
-  const nameEl = useRef();
-  const emailEl = useRef();
-  const storeDataEl = useRef();
-
-  const handleCommentSubmission = () => {
-    setError(false);
-    const { value: comment } = commentEl.current;
-    const { value: name } = nameEl.current;
-    const { value: email } = emailEl.current;
-    const { checked: storeData } = storeDataEl.current;
-
-    if (!comment || !nameEl || !emailEl) {
-      setError(true);
-      return;
-    }
-
-    const commentObj = {
-      name,
-      email,
-      comment,
-      slug,
-    };
-    if (storeData) {
-      localStorage.setItem("name", name);
-      localStorage.setItem("email", email);
-    } else {
-      localStorage.removeItem("name", name);
-      localStorage.removeItem("email", email);
-    }
-  };
-  return (
-    <div className="bg-gray-300 shadow-lg rounded-lg p-8 pb-12 mb-8">
-      <h3 className="text-xl mb-8 font-semibold border-b pb-4">
-        Comments Form
-      </h3>
-      <div className="grid grid-cols-1 gap-4 mb-4">
-        <textarea
-          ref={commentEl}
-          className="p-4 outline-none w-full rounded-lg focus:ring-2 focus:ring-gray-200 bg-gray-200 text-gray-700"
-          placeholder="Comentario"
-          name="comment"
-        />
-      </div>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
-        <input
-          type="text"
-          ref={nameEl}
-          className="py-2 px-4 outline-none w-full rounded-lg focus:ring-2 focus:ring-gray-200 bg-gray-200 text-gray-700"
-          placeholder="Nombre"
-          name="name"
-        />
-        <input
-          type="text"
-          ref={emailEl}
-          className="py-2 px-4 outline-none w-full rounded-lg focus:ring-2 focus:ring-gray-200 bg-gray-200 text-gray-700"
-          placeholder="Email"
-          name="email"
-        />
-      </div>
-      <div className="grid grid-cols-1 gap-4 mb-4">
-        <div>
-          <input
-            ref={storeDataEl}
-            type="checkbox"
-            id="storeData"
-            name="storeData"
-            value="true"
-          ></input>
-          <label
-            className="text-gray-500 cursor-pointer ml-2"
-            htmlFor="storeData"
-          >
-            Guardar mi Nombre y Email en próximos comentarios.
-          </label>
-        </div>
-      </div>
-      {error && (
-        <p className="text-xs text-red-500">Todos los campos son requeridos.</p>
-      )}
-      <div className="mt-8">
-        <button
-          type="button"
-          onClick={handleCommentSubmission}
-          className="transition duration-500 ease hover:bg-green-400 inline-block rounded-full bg-green-200 text-lg text-gray-400 px-6 py-2 cursor-pointer"
-        >
-          Comentar
-        </button>
-        {showSuccessMessage && (
-          <span className="text-xl float-right font-semibold mt-3 text-green-500">
-            Comentario enviado a revisión.
-          </span>
-        )}
-      </div>
-    </div>
-  );
-};
-
-export default CommentsForm;
- */

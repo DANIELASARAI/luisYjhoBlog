@@ -14,10 +14,15 @@ body {
   padding: 0;
   margin: 0;
   font-family: 'Montserrat', sans-serif;
-  .caveat {
+  .caveat_small {
     font-family: 'Caveat', cursive;
     font-size:x-large
   }
+  .caveat_large {
+    font-family: 'Caveat', cursive;
+    font-size:xx-large
+  }
+ 
   &:before{
     content:'';
     content: "";
