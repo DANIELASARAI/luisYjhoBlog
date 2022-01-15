@@ -67,17 +67,17 @@ const PostDetail = ({ post }) => {
               </span>
             </div>
           </div>
-          <h1 className="mb-8 text-3xl font-semibold">{post.title}</h1>
+          <h1 className="mb-8 text-2xl font-semibold">{post.title}</h1>
           <div>
             <RichText
               content={post.content.raw}
               renderers={{
                 p: ({ children }) => (
-                  <p className="text-xl mt-2 mb-2">{children}</p>
+                  <p className="text-lg mt-2 mb-2">{children}</p>
                 ),
 
-                h1: ({ children }) => <h1 className="text-3xl ">{children}</h1>,
-                h2: ({ children }) => <h2 className="text-2xl ">{children}</h2>,
+                h1: ({ children }) => <h1 className="text-2xl ">{children}</h1>,
+                h2: ({ children }) => <h2 className="text-xl ">{children}</h2>,
                 bold: ({ children }) => (
                   <strong className="text-gray-600">{children}</strong>
                 ),
@@ -88,17 +88,17 @@ const PostDetail = ({ post }) => {
                 ),
 
                 ul: ({ children }) => (
-                  <ul className="list-disc text-xl ml-4 mt-2 mb-2 italic">
+                  <ul className="list-disc text-lg ml-4 mt-2 mb-2 italic">
                     {children}
                   </ul>
                 ),
                 ol: ({ children }) => (
-                  <ol className="list-decimal text-xl ml-4 mt-2 mb-2 italic">
+                  <ol className="list-decimal text-lg ml-4 mt-2 mb-2 italic">
                     {children}
                   </ol>
                 ),
                 blockquote: ({ children }) => (
-                  <blockquote className="text-gray-600  blockquote text-2xl mt-2 mb-2">
+                  <blockquote className="text-gray-600  blockquote text-lg mt-2 mb-2">
                     <p>"{children}"</p>
                   </blockquote>
                 ),
