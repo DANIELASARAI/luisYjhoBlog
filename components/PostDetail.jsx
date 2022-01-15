@@ -25,7 +25,7 @@ import { RichText } from "@graphcms/rich-text-react-renderer";
 const PostDetail = ({ post }) => {
   return (
     <>
-      <div className="bg-amber-100 shadow-lg rounded-lg lg:p-8 pb-12 mb-8">
+      <div className="bg-yellow-100 shadow-lg rounded-lg lg:p-8 pb-12 mb-8">
         <div className="relative overflow-hidden shadow-md mb-6">
           <img
             src={post.featuredImage.url}
