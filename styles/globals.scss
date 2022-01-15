@@ -18,6 +18,11 @@ body {
     font-family: 'Caveat', cursive;
     font-size:x-large
   }
+  .caveat_med
+  {
+    font-family: 'Caveat', cursive;
+    font-size: 28px
+  }
   .caveat_large {
     font-family: 'Caveat', cursive;
     font-size:xx-large
@@ -31,6 +36,7 @@ body {
     //background: linear-gradient(to right bottom, #6d327c, #485DA6, #00a1ba, #01b18e, #32b37b);
     // background: #D3D3D3;
     background-image: url("../public/bg.jpg");
+
     position: fixed;
     left: 0;
     top: 0;
@@ -76,3 +82,50 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.blockquote	{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', 'Arial, sans-serif';
+}
+.box	{
+  font-family:'Caveat';
+  font-size:25px;
+  color: red
+}
+
+.table-auto {
+  table-layout:auto ;
+  border: 1px solid gray;
+  margin: auto;
+  empty-cells: show;
+  
+  
+}
+
+.table,
+td {
+    border: 1px solid #333;
+    padding: 5px 10px;
+    
+    
+    
+   
+}
+
+th {
+  
+  padding: 5px 10px;
+  top: 0;
+  background: antiquewhite;
+  vertical-align: bottom;
+  font-style: italic;
+}
+
+
+
+
+
+
+
+
+
+

@@ -1,64 +1,28 @@
 import React from "react";
 import moment from "moment";
+import { RichText } from "@graphcms/rich-text-react-renderer";
+
+/**
+ * Helps tracking the props changes made in a react functional component.
+ *
+ * Prints the name of the properties/states variables causing a render (or re-render).
+ * For debugging purposes only.
+ *
+ * @usage You can simply track the props of the components like this:
+ *  useRenderingTrace('MyComponent', props);
+ *
+ * @usage You can also track additional state like this:
+ *  const [someState] = useState(null);
+ *  useRenderingTrace('MyComponent', { ...props, someState });
+ *
+ * @param componentName Name of the component to display
+ * @param propsAndStates
+ * @param level
+ *
+ * @see https://stackoverflow.com/a/51082563/2391795
+ */
 
 const PostDetail = ({ post }) => {
-  const getContentFragment = (index, text, obj, type) => {
-    let modifiedText = text;
-
-    if (obj) {
-      if (obj.bold) {
-        modifiedText = <b key={index}>{text}</b>;
-      }
-
-      if (obj.italic) {
-        modifiedText = <em key={index}>{text}</em>;
-      }
-
-      if (obj.underline) {
-        modifiedText = <u key={index}>{text}</u>;
-      }
-    }
-
-    switch (type) {
-      case "heading-three":
-        return (
-          <h3 key={index} className="text-xl font-semibold mb-4">
-            {modifiedText.map((item, i) => (
-              <React.Fragment key={i}>{item}</React.Fragment>
-            ))}
-          </h3>
-        );
-      case "paragraph":
-        return (
-          <p key={index} className="mb-8">
-            {modifiedText.map((item, i) => (
-              <React.Fragment key={i}>{item}</React.Fragment>
-            ))}
-          </p>
-        );
-      case "heading-four":
-        return (
-          <h4 key={index} className="text-md font-semibold mb-4">
-            {modifiedText.map((item, i) => (
-              <React.Fragment key={i}>{item}</React.Fragment>
-            ))}
-          </h4>
-        );
-      case "image":
-        return (
-          <img
-            key={index}
-            alt={obj.title}
-            height={obj.height}
-            width={obj.width}
-            src={obj.src}
-          />
-        );
-      default:
-        return modifiedText;
-    }
-  };
-
   return (
     <>
       <div className="bg-amber-100 shadow-lg rounded-lg lg:p-8 pb-12 mb-8">
@@ -104,17 +68,59 @@ const PostDetail = ({ post }) => {
             </div>
           </div>
           <h1 className="mb-8 text-3xl font-semibold">{post.title}</h1>
-          {post.content.raw.children.map((typeObj, index) => {
-            const children = typeObj.children.map((item, itemindex) =>
-              getContentFragment(itemindex, item.text, item)
-            );
+          <div>
+            <RichText
+              content={post.content.raw}
+              renderers={{
+                p: ({ children }) => (
+                  <p className="text-xl mt-2 mb-2">{children}</p>
+                ),
 
-            return getContentFragment(index, children, typeObj, typeObj.type);
-          })}
+                h1: ({ children }) => <h1 className="text-3xl ">{children}</h1>,
+                h2: ({ children }) => <h2 className="text-2xl ">{children}</h2>,
+                bold: ({ children }) => (
+                  <strong className="text-gray-600">{children}</strong>
+                ),
+                table: ({ children }) => (
+                  <table className="text-gray-600 table-auto mt-2 mb-2">
+                    {children}
+                  </table>
+                ),
+
+                ul: ({ children }) => (
+                  <ul className="list-disc text-xl ml-4 mt-2 mb-2 italic">
+                    {children}
+                  </ul>
+                ),
+                ol: ({ children }) => (
+                  <ol className="list-decimal text-xl ml-4 mt-2 mb-2 italic">
+                    {children}
+                  </ol>
+                ),
+                blockquote: ({ children }) => (
+                  <blockquote className="text-gray-600  blockquote text-2xl mt-2 mb-2">
+                    <p>"{children}"</p>
+                  </blockquote>
+                ),
+                a: ({ children, openInNewTab, href, rel, ...rest }) => (
+                  <a
+                    className="text-blue-500 italic"
+                    href={href}
+                    target={openInNewTab ? "_blank" : "_self"}
+                    rel={rel || "noopener noreferrer"}
+                    {...rest}
+                  >
+                    {children}
+                  </a>
+                ),
+              }}
+            />
+          </div>
         </div>
       </div>
     </>
   );
 };
+console.log(RichText);
 
 export default PostDetail;

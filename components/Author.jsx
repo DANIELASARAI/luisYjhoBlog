@@ -14,7 +14,7 @@ const Author = ({ author }) => (
       />
     </div>
     <h3 className="text-red-600 mt-4 mb-4 text-xl font-bold">{author.name}</h3>
-    <p className="text-gray text-ls">{author.bio}</p>
+    <p className="text-gray-500 text-lg italic">{author.bio}</p>
   </div>
 );
 
