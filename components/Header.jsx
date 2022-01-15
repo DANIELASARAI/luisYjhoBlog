@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { getCategories } from "../services";
 import Image from "next/image";
+import instagram from "../public/instagram.png";
+import youtube from "../public/youtube.png";
 
 const Header = () => {
   const [categories, setCategories] = useState([]);
@@ -31,12 +33,7 @@ const Header = () => {
           >
             {" "}
             <span>
-              <Image
-                src="/../public/instagram.png"
-                width="30"
-                height="30"
-                priority
-              />
+              <Image src={instagram} width="30" height="30" />
             </span>
           </a>
           <a
@@ -45,12 +42,7 @@ const Header = () => {
           >
             {" "}
             <span>
-              <Image
-                src="/../public/youtube.png"
-                width="30"
-                height="30"
-                priority
-              />
+              <Image src={youtube} width="30" height="30" />
             </span>
           </a>
         </div>
