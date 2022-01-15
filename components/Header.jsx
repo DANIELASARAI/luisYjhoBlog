@@ -28,6 +28,8 @@ const Header = () => {
             Blog
           </a>
           <a
+            target="_blank"
+            rel="noopener noreferrer"
             href="https://www.instagram.com/luisyjhoenportugal/?hl=pt"
             className="inline-block ml-4"
           >
@@ -37,6 +39,8 @@ const Header = () => {
             </span>
           </a>
           <a
+            target="_blank"
+            rel="noopener noreferrer"
             href="https://www.youtube.com/channel/UCNjVgF8mmNRnuSMeM_bp74A"
             className="inline-block ml-6"
           >
