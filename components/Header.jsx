@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { getCategories } from "../services";
 import Image from "next/image";
-import instagram from "../public/instagram.png";
-import youtube from "../public/youtube.png";
+import instagram from "../assets/instagram.png";
+import youtube from "../assets/youtube.png";
 
 const Header = () => {
   const [categories, setCategories] = useState([]);
@@ -33,7 +33,7 @@ const Header = () => {
           >
             {" "}
             <span>
-              <Image src={instagram} width="30" height="30" />
+              <Image src={instagram} width="30" height="30" priority />
             </span>
           </a>
           <a
@@ -42,7 +42,7 @@ const Header = () => {
           >
             {" "}
             <span>
-              <Image src={youtube} width="30" height="30" />
+              <Image src={youtube} width="30" height="30" priority />
             </span>
           </a>
         </div>
@@ -50,7 +50,7 @@ const Header = () => {
         <div className="hidden md:float-left lg:contents">
           {categories.map((category, index) => (
             <Link key={index} href={`/category/${category.slug}`}>
-              <span className="caveat_med md:float-right mt-2 align-middle text-red-600 hover:text-green-400 ml-4 font-semibold cursor-pointer">
+              <span className="caveat_small md:float-right mt-2 align-middle text-red-600 hover:text-green-400 ml-4 font-semibold cursor-pointer">
                 {category.name}
               </span>
             </Link>
